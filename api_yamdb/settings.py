@@ -41,7 +41,7 @@ INSTALLED_APPS = [
     'api',
     'users',
     'titles',
-    #'users.apps.UsersConfig',
+
     # Third-Party Apps
     'rest_framework',
     'django_filters',

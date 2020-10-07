@@ -3,13 +3,11 @@ from django.urls import include, path
 from rest_framework.routers import DefaultRouter
 from users.views import UserViewSet, AuthEmail, AuthToken
 
-from titles.views import TitlesApiView
+from titles.views import CategoriesViewSet
+
 router = DefaultRouter()
 router.register(r'users', UserViewSet)
-router.register(r'titles', TitlesApiView)
-
-
-
+router.register(r'categories', CategoriesViewSet)
 
 urlpatterns = [
     path('v1/', include(router.urls)),

@@ -13,7 +13,7 @@ class ReviewViewSet(viewsets.ModelViewSet):
         """
         Необходимо вернуть только одзывы которые принадлежат конкретному произведению, по id например
         """
-        title =
+        #title =
 
     def create(self):
         """
