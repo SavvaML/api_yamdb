@@ -1,3 +1,4 @@
+from django.db.models import Count
 from requests import Response
 from rest_framework import generics, mixins, viewsets, status
 from rest_framework.permissions import IsAuthenticated
@@ -41,7 +42,7 @@ class GenresViewSet(CustomListViewSet):
 
 class TitlesViewSet(viewsets.ModelViewSet):
     pagination_class = PageNumberPagination
-    queryset = Titles.objects.all()
+    queryset = Titles.objects.all().annotate(Count('rating'))
     permission_classes = (ReadOnly | TitleAdmin,)
     filter_backends = [DjangoFilterBackend]
     filter_class = TitlesFilter
