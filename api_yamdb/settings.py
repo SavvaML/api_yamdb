@@ -42,9 +42,9 @@ INSTALLED_APPS = [
     'django_filters',
     # Local Apps
     'api',
-    'users',
+    #'users',
     'titles',
-    #'users.apps.UsersConfig',
+    'users.apps.UsersConfig',
 
 ]
 AUTH_USER_MODEL = 'users.Users'
@@ -152,5 +152,3 @@ REST_FRAMEWORK = {
 } 
 
 
-CORS_ORIGIN_ALLOW_ALL = True
-CORS_URLS_REGEX = r'^/api/.*$' 
