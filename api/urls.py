@@ -5,17 +5,16 @@ from users.views import UserViewSet, AuthEmail, AuthToken
 
 from api.views import CommentViewSet, ReviewViewSet
 from titles.views import TitlesViewSet, CategoriesViewSet, GenresViewSet
+
 router = DefaultRouter()
 router.register(r'users', UserViewSet)
 router.register(r'titles', TitlesViewSet)
-router.register(r'genres',  GenresViewSet)
+router.register(r'genres', GenresViewSet)
 router.register(r'categories', CategoriesViewSet)
-router.register(r'titles/(?P<title_id>\d+)/reviews', ReviewViewSet, basename='reviews')
-router.register(r'titles/(?P<title_id>\d+)/reviews/(?P<review_id>\d+)/comments', CommentViewSet, basename='comments')
-
-
-
-
+router.register(r'titles/(?P<title_id>\d+)/reviews', ReviewViewSet,
+                basename='reviews')
+router.register(r'titles/(?P<title_id>\d+)/reviews/(?P<review_id>\d+)/comments'
+                , CommentViewSet, basename='comments')
 
 urlpatterns = [
     path('v1/', include(router.urls)),
