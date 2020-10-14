@@ -45,7 +45,7 @@ class Titles(models.Model):
     category = models.ForeignKey(Categories, null=True, blank=True,
                                  on_delete=models.SET_NULL)
     genre = models.ManyToManyField(Genres, blank=True,
-                                   null=True, verbose_name='Жанр')
+                                   verbose_name='Жанр')
     rating = models.IntegerField(blank=True, null=True)
 
     class Meta:
