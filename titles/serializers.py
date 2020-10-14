@@ -10,7 +10,7 @@ class TitleCreateSerializer(serializers.ModelSerializer):
                                             queryset=Categories.objects.all())
 
     class Meta:
-        fields = ('id', 'name', 'year', 'genre', 'category', 'description')
+        fields = "__all__"
         model = Titles
 
 
@@ -32,7 +32,5 @@ class TitleListSerializer(serializers.ModelSerializer):
     rating = serializers.FloatField()
 
     class Meta:
-        fields = (
-            'id', 'name', 'year', 'genre',
-            'rating', 'category', 'description')
+        fields = "__all__"
         model = Titles
