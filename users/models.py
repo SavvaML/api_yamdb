@@ -11,7 +11,10 @@ class Users(AbstractUser):
         (MODERATOR, "moderator"),
         (ADMIN, "admin"),
     ]
-    role = models.CharField(max_length=40, choices=ROLE, default=USER)
+
+    role = models.CharField(max_length=40, choices=ROLE,
+                            default=ROLE,
+                            verbose_name='Роль', )
     bio = models.TextField(max_length=250, blank=True)
     email = models.EmailField(unique=True)
     username = models.CharField(max_length=250, blank=True, null=True,
@@ -21,4 +24,10 @@ class Users(AbstractUser):
     class Meta:
         ordering = ["username"]
 
+    @property
+    def is_admin(self):
+        return self.role == 'admin' or self.is_admin
 
+    @property
+    def is_moderator(self):
+        return self.role == 'moderator' or self.is_moderator

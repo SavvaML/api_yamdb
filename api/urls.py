@@ -15,12 +15,14 @@ router.register(r'titles/(?P<title_id>\d+)/reviews', ReviewViewSet,
                 basename='reviews')
 router.register(r'titles/(?P<title_id>\d+)/reviews/(?P<review_id>\d+)/comments'
                 , CommentViewSet, basename='comments')
-
-urlpatterns = [
-    path('v1/', include(router.urls)),
-    path('v1/auth/token/', AuthToken.as_view(),
+urlpatterns2 = [
+    path('token/', AuthToken.as_view(),
          name='token_obtain_pair'),
-    path('v1/auth/email', AuthEmail.as_view(),
+    path('email/', AuthEmail.as_view(),
          name='confirmation_code'),
+]
+urlpatterns = [
+    path('v1/auth', include(urlpatterns2)),
+    path('v1/', include(router.urls)),
 
 ]

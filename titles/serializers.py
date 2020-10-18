@@ -29,7 +29,7 @@ class GenresSerializer(serializers.ModelSerializer):
 class TitleListSerializer(serializers.ModelSerializer):
     genre = GenresSerializer(many=True)
     category = CategoriesSerializer()
-    rating = serializers.FloatField()
+    rating = serializers.FloatField(read_only=True)
 
     class Meta:
         fields = "__all__"

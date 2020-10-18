@@ -15,7 +15,8 @@ def max_value_current_year(value):
 
 
 class Categories(models.Model):
-    name = models.CharField(max_length=200)
+    name = models.CharField(max_length=200,verbose_name='Название категории',
+                            db_index=True)
     slug = models.SlugField(unique=True)
 
     class Meta:
@@ -37,10 +38,13 @@ class Genres(models.Model):
 
 
 class Titles(models.Model):
-    name = models.CharField(max_length=200, blank=False)
+    name = models.CharField(max_length=200, blank=False,
+                            verbose_name='Название произведения',
+                            db_index=True)
     year = models.PositiveIntegerField(
         default=current_year(),
-        validators=[MinValueValidator(1450), max_value_current_year])
+        validators=[MinValueValidator(1450), max_value_current_year],
+        verbose_name='Дата публикации произведения', db_index=True)
     description = models.TextField(null=True, blank=True)
     category = models.ForeignKey(Categories, null=True, blank=True,
                                  on_delete=models.SET_NULL)
@@ -48,5 +52,5 @@ class Titles(models.Model):
                                    verbose_name='Жанр')
     rating = models.IntegerField(blank=True, null=True)
 
-    class Meta:
-        ordering = ["name"]
+
+
