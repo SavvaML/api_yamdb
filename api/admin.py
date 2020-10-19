@@ -14,5 +14,6 @@ class CommentAdmin(admin.ModelAdmin):
     empty_value_display = '-пусто-'
 
 
+
 admin.site.register(Review, ReviewAdmin)
 admin.site.register(Comment, CommentAdmin)

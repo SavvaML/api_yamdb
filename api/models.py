@@ -19,6 +19,7 @@ class Review(models.Model):
                               related_name="reviews",
                               verbose_name='Дата публикации')
 
+
     class Meta:
         verbose_name = 'Отзыв'
         verbose_name_plural = 'Отзывы'
@@ -46,3 +47,4 @@ class Comment(models.Model):
 
     def __str__(self):
         return self.text
+

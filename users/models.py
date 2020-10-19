@@ -17,8 +17,11 @@ class Users(AbstractUser):
                             verbose_name='Роль', )
     bio = models.TextField(max_length=250, blank=True)
     email = models.EmailField(unique=True)
-    username = models.CharField(max_length=250, blank=True, null=True,
-                                unique=True)
+    username = models.CharField(max_length=250,
+                                blank=True,
+                                null=True,
+                                unique=True,
+                                db_index=True)
     confirm_code = models.CharField(max_length=5)
 
     class Meta:
