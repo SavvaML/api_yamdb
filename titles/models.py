@@ -15,7 +15,7 @@ def max_value_current_year(value):
 
 
 class Categories(models.Model):
-    name = models.CharField(max_length=200,verbose_name='Название категории',
+    name = models.CharField(max_length=200, verbose_name='Название категории',
                             db_index=True)
     slug = models.SlugField(unique=True)
 

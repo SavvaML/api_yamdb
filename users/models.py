@@ -7,9 +7,9 @@ class Users(AbstractUser):
     MODERATOR = 'moderator'
     ADMIN = 'admin'
     ROLE = [
-        (USER, "user"),
-        (MODERATOR, "moderator"),
-        (ADMIN, "admin"),
+        (USER, USER),
+        (MODERATOR, MODERATOR),
+        (ADMIN, ADMIN),
     ]
 
     role = models.CharField(max_length=40, choices=ROLE,
@@ -26,8 +26,8 @@ class Users(AbstractUser):
 
     @property
     def is_admin(self):
-        return self.role == 'admin' or self.is_admin
+        return self.role == self.ADMIN or self.is_admin
 
     @property
     def is_moderator(self):
-        return self.role == 'moderator' or self.is_moderator
+        return self.role == self.MODERATOR or self.is_moderator
