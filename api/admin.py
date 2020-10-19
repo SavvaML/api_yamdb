@@ -1,19 +1,18 @@
 from django.contrib import admin
 
-from .models import Review, Comment
+from api.models import Comment, Review
 
 
 class ReviewAdmin(admin.ModelAdmin):
-    list_display = ("score", "text", "pub_date", "author")
-    search_fields = ("score",)
-    list_filter = ("pub_date",)
-    empty_value_display = "-пусто-"
+    list_display = ("pk", "text", "author", "score",
+                    'pub_date', 'title', 'title_id')
+    empty_value_display = '-пусто-'
 
 
 class CommentAdmin(admin.ModelAdmin):
-    list_display = ("text", "pub_date", "author", "review")
-    search_fields = ("author",)
-    empty_value_display = "-пусто-"
+    list_display = ("pk", "text", "author", 'pub_date', 'review', 'review_id')
+    empty_value_display = '-пусто-'
+
 
 
 admin.site.register(Review, ReviewAdmin)

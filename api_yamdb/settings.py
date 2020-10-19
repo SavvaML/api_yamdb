@@ -31,19 +31,15 @@ ALLOWED_HOSTS = ['*']
 # Application definition
 
 INSTALLED_APPS = [
+    'api',
+    'users',
+    'titles',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-
-    # Local Apps
-    'api',
-    'users',
-    'titles',
-    #'users.apps.UsersConfig',
-    # Third-Party Apps
     'rest_framework',
     'django_filters',
 
@@ -153,5 +149,3 @@ REST_FRAMEWORK = {
 } 
 
 
-CORS_ORIGIN_ALLOW_ALL = True
-CORS_URLS_REGEX = r'^/api/.*$' 

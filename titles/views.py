@@ -11,7 +11,7 @@ from rest_framework.filters import SearchFilter
 from rest_framework.response import Response
 from rest_framework.pagination import PageNumberPagination
 from titles.filters import TitlesFilter
-
+from django.db.models import Count
 
 class CustomListViewSet(
     mixins.ListModelMixin,

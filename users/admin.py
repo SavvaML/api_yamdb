@@ -1,13 +1,10 @@
 from django.contrib import admin
-
 from .models import Users
 
-
-class UsersAdmin(admin.ModelAdmin):
-    list_display = ('USER', 'MODERATOR', 'ADMIN', 'ROLE', 'role', 'bio', 'email', 'username')
-    search_fields = ('username',)
-    list_filter = ('username',)
-    empty_value_display = '-пусто-'
+class UserAdmin(admin.ModelAdmin):
+    list_display = ("pk", "username", "email")
+    search_fields = ("username",)
 
 
-admin.site.register(Users, UsersAdmin)
+admin.site.register(Users, UserAdmin)
+
